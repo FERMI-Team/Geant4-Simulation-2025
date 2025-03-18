@@ -1,5 +1,7 @@
 #include "physics.hh"
 
+// Riusltano errore linee di codice G4Muons (esclusa rica 7 e 17)
+
 MyPhysicsList::MyPhysicsList()
 {
 RegisterPhysics (new G4EmStandardPhysics());
