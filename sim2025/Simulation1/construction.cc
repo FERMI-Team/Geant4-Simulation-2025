@@ -3,21 +3,10 @@
 MyDetectorConstruction::MyDetectorConstruction()
 {}
 
-//MyDetectorConstruction::MyDetectorConstruction()
-//{}
 
 G4VPhysicalVolume *MyDetectorConstruction::Construct()
 {
 	G4NistManager *nist = G4NistManager::Instance();
-	
-   // G4Material *Collagene = new G4Material("Collagene", 1.216*g/cm3, 4);
-   // Collagene->AddElement(nist->FindOrBuildElement("H"), 91);
-   // Collagene->AddElement(nist->FindOrBuildElement("O"), 16);
-   // Collagene->AddElement(nist->FindOrBuildElement("C"), 57);
-   // Collagene->AddElement(nist->FindOrBuildElement("N"), 19);
-   
-
-
 	
 	G4Material *worldMat = nist->FindOrBuildMaterial("G4_AIR"); //materiale
 	

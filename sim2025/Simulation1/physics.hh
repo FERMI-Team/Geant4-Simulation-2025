@@ -24,6 +24,7 @@ class MyPhysicsList : public  G4VModularPhysicsList
 public:
 MyPhysicsList();
 ~MyPhysicsList();
+void ConstructParticles();
 };
 
 #endif
