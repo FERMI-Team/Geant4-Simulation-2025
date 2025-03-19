@@ -1,6 +1,22 @@
 #include "physics.hh"
 
-// Riusltano errore linee di codice G4Muons (esclusa rica 7 e 17)
+FisicaMuoni::FisicaMuoni(const G4String&) 
+{
+
+}
+
+FisicaMuoni::~FisicaMuoni()
+{}
+
+void FisicaMuoni::ConstructParticle() 
+{
+
+}
+
+void FisicaMuoni::ConstructProcess()
+{
+
+}
 
 MyPhysicsList::MyPhysicsList()
 {
