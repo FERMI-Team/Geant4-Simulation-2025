@@ -1,37 +1,47 @@
 #include "physics.hh"
 
-FisicaMuoni::FisicaMuoni(const G4String&) 
-{
-
-}
+FisicaMuoni::FisicaMuoni() 
+{}
 
 FisicaMuoni::~FisicaMuoni()
 {}
 
+// Costruzione Particelle Non Presenti In G4EmPhysicsStandard
+
 void FisicaMuoni::ConstructParticle() 
 {
-
+	G4NeutrinoMu::NeutrinoMuDefinition();
+	G4NeutrinoE::NeutrinoEDefinition();
+	G4AntiNeutrinoMu::AntiNeutrinoMuDefinition();
+	G4AntiNeutrinoE::AntiNeutrinoEDefinition();
 }
 
-void FisicaMuoni::ConstructProcess()
-{
+// Aggiunta a MuonPlus I Processi:  MuonMinusCapture, MuonMinusAtomicCapture
+// Aggiunta a MuonMinus I Processi:  MuonMinusCapture, MuonMinusAtomicCapture
 
+void FisicaMuoni::ConstructProcess() {
+
+	G4ProcessManager* muPlusManager = G4MuonPlus::Definition()->GetProcessManager();
+	muPlusManager->AddDiscreteProcess(new G4MuonMinusCapture());
+	muPlusManager->AddDiscreteProcess(new G4MuonMinusAtomicCapture());
+
+	G4ProcessManager* muMinusManager = G4MuonMinus::Definition()->GetProcessManager();
+	muMinusManager->AddDiscreteProcess(new G4MuonMinusCapture());
+	muMinusManager->AddDiscreteProcess(new G4MuonMinusAtomicCapture());
 }
+
+//- G4MuonicAtomDecay GIA DEFINITO IN MUONIC ATOMDECAYPHYSICS
+//- G4MuonDecayChannelWithSpin() Non un processo
+//- G4MuonMinusBoundDecay() Non un processo
+//- G4MuBetheBlochModel()); Non un Processo
+//- RegisterPhysics (new G4MuBremsstrahlungModel()); Non un processo
+
 
 MyPhysicsList::MyPhysicsList()
 {
-RegisterPhysics (new G4EmStandardPhysics());
-
-//RegisterPhysics (new G4MuonDecayChannelWithSpin());
-//RegisterPhysics (new G4MuonMinusCapture()); E' UN PROCESSO
-
-//RegisterPhysics (new G4MuonMinusBoundDecay());
-//RegisterPhysics (new G4MuBetheBlochModel()); E' UN PROCESSO
-//RegisterPhysics (new G4MuBremsstrahlungModel()); E' UN PROCESSO
-//RegisterPhysics (new G4MuonicAtomDecay()); DOVREBBE ESSERE UN PROCESSO
-RegisterPhysics (new G4MuonicAtomDecayPhysics());
-//RegisterPhysics (new G4MuonicAtomHelper());
-//RegisterPhysics (new G4MuonMinusAtomicCapture()); DOVREBBE ESSERE UN PROCESSO
+	RegisterPhysics (new G4EmStandardPhysics()); 
+	RegisterPhysics (new G4MuonicAtomDecayPhysics());
+	RegisterPhysics (new FisicaMuoni());
 }
 
 MyPhysicsList::~MyPhysicsList()

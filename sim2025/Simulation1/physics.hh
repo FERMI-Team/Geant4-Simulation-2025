@@ -17,15 +17,17 @@
 #include "G4MuonMinusAtomicCapture.hh"
 
 #include "G4VPhysicsConstructor.hh"
+#include "G4ProcessManager.hh"
 
 class FisicaMuoni : public G4VPhysicsConstructor
 {
 public:
-	FisicaMuoni(const G4String& name = "Muoni");
+
+	FisicaMuoni();
 	~FisicaMuoni();
 
 	void ConstructParticle();
-	void ConstructProcess();
+	void ConstructProcess(); //Dentro non definito nulla
 };
 
 
@@ -33,8 +35,8 @@ class MyPhysicsList : public  G4VModularPhysicsList
 
 {
 public:
-MyPhysicsList();
-~MyPhysicsList();
+	MyPhysicsList();
+	~MyPhysicsList();
 };
 
 #endif
