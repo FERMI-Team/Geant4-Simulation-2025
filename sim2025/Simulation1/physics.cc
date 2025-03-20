@@ -15,15 +15,9 @@ void FisicaMuoni::ConstructParticle()
 	G4AntiNeutrinoMu::AntiNeutrinoMuDefinition();
 	G4AntiNeutrinoE::AntiNeutrinoEDefinition();
 }
-
-// Aggiunta a MuonPlus I Processi:  MuonMinusCapture, MuonMinusAtomicCapture
 // Aggiunta a MuonMinus I Processi:  MuonMinusCapture, MuonMinusAtomicCapture
 
 void FisicaMuoni::ConstructProcess() {
-
-	G4ProcessManager* muPlusManager = G4MuonPlus::Definition()->GetProcessManager();
-	muPlusManager->AddDiscreteProcess(new G4MuonMinusCapture());
-	muPlusManager->AddDiscreteProcess(new G4MuonMinusAtomicCapture());
 
 	G4ProcessManager* muMinusManager = G4MuonMinus::Definition()->GetProcessManager();
 	muMinusManager->AddDiscreteProcess(new G4MuonMinusCapture());
