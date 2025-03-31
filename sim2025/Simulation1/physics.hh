@@ -26,8 +26,8 @@ public:
 	FisicaMuoni();
 	~FisicaMuoni();
 
-	void ConstructParticle();
-	void ConstructProcess(); //Dentro non definito nulla
+	void ConstructParticle() override;
+	void ConstructProcess() override;
 };
 
 

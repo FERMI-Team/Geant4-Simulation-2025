@@ -37,4 +37,6 @@ man->FillNtupleDColumn(2, posDetector[1]);
 man->FillNtupleDColumn(3, posDetector[2]);
 man->AddNtupleRow(0);
 
+// linea di codice usata solo per fix dell'errore
+return true;
 }

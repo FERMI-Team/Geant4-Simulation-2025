@@ -14,14 +14,15 @@
 
 class MyDetectorConstruction : public G4VUserDetectorConstruction
 {
-public:
-MyDetectorConstruction();
-//-MyDetectorConstruction();
+	public:
+	MyDetectorConstruction();
+	~MyDetectorConstruction();
+	
+	virtual G4VPhysicalVolume *Construct();
 
-virtual G4VPhysicalVolume *Construct();
-
-private:
-G4LogicalVolume *logicDetector;
-virtual void ConstructSDandField();
+	private:
+		G4LogicalVolume *logicDetector;
+		virtual void ConstructSDandField();
 };
+
 #endif
