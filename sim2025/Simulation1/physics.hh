@@ -16,14 +16,27 @@
 #include "G4MuonicAtomHelper.hh"
 #include "G4MuonMinusAtomicCapture.hh"
 
+#include "G4VPhysicsConstructor.hh"
+#include "G4ProcessManager.hh"
+
+class FisicaMuoni : public G4VPhysicsConstructor
+{
+public:
+
+	FisicaMuoni();
+	~FisicaMuoni();
+
+	void ConstructParticle();
+	void ConstructProcess(); //Dentro non definito nulla
+};
 
 
 class MyPhysicsList : public  G4VModularPhysicsList
 
 {
 public:
-MyPhysicsList();
-~MyPhysicsList();
+	MyPhysicsList();
+	~MyPhysicsList();
 };
 
 #endif
