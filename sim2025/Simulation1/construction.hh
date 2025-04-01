@@ -11,7 +11,6 @@
 #include "detector.hh"
 #include "G4Sphere.hh"
 
-
 class MyDetectorConstruction : public G4VUserDetectorConstruction
 {
 	public:
