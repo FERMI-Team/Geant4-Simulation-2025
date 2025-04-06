@@ -16,8 +16,8 @@ G4VPhysicalVolume *MyDetectorConstruction::Construct()
    // Collagene->AddElement(nist->FindOrBuildElement("C"), 57);
    // Collagene->AddElement(nist->FindOrBuildElement("N"), 19);
    
-
-
+	
+	//usare materiali leggeri e dei materiali forti
 	
 	G4Material *worldMat = nist->FindOrBuildMaterial("G4_AIR"); //materiale
 	
